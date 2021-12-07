@@ -7,7 +7,6 @@ def PE_Ratio():
     }
     url = 'http://value500.com/pe.asp'
     response = requests.get(url, headers=headers).text  #
-
     treeak = BeautifulSoup(response, 'html.parser').find("body").find_all("tr", align="center")[1]
     PE_Ratio_shanghai = treeak.find_all("td")[1].text
     PE_Ratio_shenzheng = treeak.find_all("td")[2].text
