@@ -2,26 +2,15 @@ from Common_function import *
 from PE_shares import *
 
 PE_Ratio_shanghai, PE_Ratio_shenzheng = PE_Ratio()
-china_10_year_bond = china_10_year_bond_yield()
-# stock_code_list = ['sh000300', 'sh600000', 'sz000002', 'sh600002', 'sz000003', 'sz300124', 'sh600276', 'sz002952']
+china_10_year_bond = 2.8 #china_10_year_bond_yield()
 
-stock_code_list = ['sz300124','sz002952','sh600276']
-
-# print(china_10_year_bond)
-
-# print(PE_RatioRatio_shanghai, PE_Ratio_shenzheng)
-# print(china_10_year_bond)
+stock_code_list = ['sh600000',  'sz300124', 'sh600276', 'sz002952']
 
 for i in stock_code_list:
-    pe_ttm = pe_one_shares(i)               # 市盈率(TTM)：
-    # print(pe_one_shares1)
-    cc = pe_ttm_all(i)
-    pe_activity = cc[1]
-    dividend_rate = cc[2]                   # 股息率(TTM)是大于十年国债
-    # pe_ttm, pe_static, pe_activity, dividend_rate = pe_ttm_all(i)
-    print(100*"*")
-    print(i)
-    print(pe_ttm," ", "15")                 # 市盈率(TTM)： 是否小于15
-    print(dividend_rate, china_10_year_bond)
 
+    pe_ttm, dividend_rate = pe_ttm_all(i)
+    print(i,"市盈率:",pe_ttm," ", "15")                         # 市盈率(TTM)： 是否小于15
+    print("深圳市盈率:",PE_Ratio_shenzheng," ", "20")            # 深圳市盈率(TTM)： 是否小于20
 
+    print("股息率(TTM):",dividend_rate, china_10_year_bond)     # 股息率(TTM)是否大于十年国债
+    

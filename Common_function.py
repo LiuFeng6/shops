@@ -6,7 +6,7 @@ def PE_Ratio():
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
     }
     url = 'http://value500.com/pe.asp'
-    response = requests.get(url, headers=headers).text  #
+    response = requests.get(url, headers=headers,verify=False).text  #
     treeak = BeautifulSoup(response, 'html.parser').find("body").find_all("tr", align="center")[1]
 
     PE_Ratio_shanghai = treeak.find_all("td")[1].text
@@ -15,12 +15,19 @@ def PE_Ratio():
 
 def china_10_year_bond_yield():
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36',
+        'referer' : 'https: // cn.investing.com /'
+
     }
     # url = 'https://cn.investing.com/rates-bonds/china-10-year-bond-yield?__cf_chl_jschl_tk__=FAl1tnF7Y6nQ7Y7FzlOPvf5md4RPpqGwueDZwJJSWCU-1638859732-0-gaNycGzNDFE'
+    # url = 'https://cn.investing.com/rates-bonds/china-10-year-bond-yield?__cf_chl_jschl_tk__=yBSzlIUp_RjhUvD4bQdGeereNW_913eldmF86zRIKk8-1638946256-0-gaNycGzNCX0'
+
     url = 'https://cn.investing.com/rates-bonds/china-10-year-bond-yield'
 
+    china_10_year_bond = BeautifulSoup(response, 'html.parser')
+    print(china_10_year_bond)
+    exit()
 
-    response = requests.get(url, headers=headers).text
+
     china_10_year_bond = BeautifulSoup(response, 'html.parser').find("span", id="fl_header_pair_lst").text
     return float(china_10_year_bond)
