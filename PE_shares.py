@@ -37,5 +37,4 @@ def pe_ttm_all(stock_code_list):
     pe_ttm = float(pe_ttm)
     dividend_rate = float(dividend_rate.strip('%'))
     # print(type(pe_ttm), type(dividend_rate))
-
     return pe_ttm, dividend_rate

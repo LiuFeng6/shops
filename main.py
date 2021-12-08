@@ -3,7 +3,6 @@ from PE_shares import *
 
 PE_Ratio_shanghai, PE_Ratio_shenzheng = PE_Ratio()
 china_10_year_bond = 2.8 #china_10_year_bond_yield()
-
 stock_code_list = ['sh600000',  'sz300124', 'sh600276', 'sz002952']
 
 for i in stock_code_list:

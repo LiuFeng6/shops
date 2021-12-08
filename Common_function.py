@@ -28,6 +28,5 @@ def china_10_year_bond_yield():
     print(china_10_year_bond)
     exit()
 
-
     china_10_year_bond = BeautifulSoup(response, 'html.parser').find("span", id="fl_header_pair_lst").text
     return float(china_10_year_bond)
